@@ -4,6 +4,7 @@ use File::Copy 'copy';
 my $program = 'gen-override';
 
 my $ttx = 'ttx';
+my $kpsewhich = 'kpsewhich';
 my $tempb = '__govr'.$$.'x';
 
 my $in_file = 'ipaexm.ttf';
@@ -39,7 +40,7 @@ sub dump_font {
     info("using intermediate file", "$in_file.xml");
     copy("$in_file.xml", "$tempb-f.ttx");
   } else {
-    my $pfnt = kpse($in_file) or error("file not found on search path", $in_file);
+    my $pfnt = kpse($in_file);
     info("font file path", $pfnt);
     my ($fext) = ($pfnt =~ m/(\.\w+)$/);
     unlink(glob("$tempb-f*.*"));
@@ -104,8 +105,13 @@ sub write_whole {
 
 sub kpse {
   my ($f) = @_;
-  local $_ = `kpsewhich $f`; chomp($_);
-  return ($_ eq '') ? undef : $_;
+  (-f $f) and return $f;
+  system("$kpsewhich --help 1>$tempb-1.out 2>$tempb-2.out");
+  unlink(glob("$tempb-*.out"));
+  ($? == 0) or error("file not found", $f);
+  local $_ = `$kpsewhich $f`; chomp($_);
+  (-f $_) or error("file not found on search path", $f);
+  return $_;
 }
 
 sub info {

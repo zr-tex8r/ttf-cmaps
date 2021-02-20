@@ -2,8 +2,8 @@ use strict;
 use Encode ('encode', 'decode');
 use JSON;
 my $program = 'cmjconv';
-my $version = '0.2.0';
-my $mod_date = '2021/02/10';
+my $version = '0.2.1';
+my $mod_date = '2021/02/20';
 
 # (* = mandatory)
 # type: * 'tounicode' / 'togid'
@@ -444,12 +444,6 @@ sub write_whole {
   } else {
     binmode(STDOUT); print($d);
   }
-}
-
-sub kpse {
-  my ($f) = @_;
-  local $_ = `kpsewhich $f`; chomp($_);
-  return ($_ eq '') ? undef : $_;
 }
 
 sub info {

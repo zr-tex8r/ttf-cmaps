@@ -3,8 +3,8 @@ use XML::Simple;
 use File::Basename 'dirname';
 use File::Copy 'copy';
 my $program = 'glymatch';
-my $version = '0.2.0';
-my $mod_date = '2021/02/11';
+my $version = '0.2.1';
+my $mod_date = '2021/02/20';
 
 sub show_usage {
   print(<<"EOT");
@@ -22,6 +22,7 @@ EOT
 }
 
 my $ttx = 'ttx';
+my $kpsewhich = 'kpsewhich';
 my $interm_sfx = '.xml';
 my $tempb = '__glym'.$$.'x';
 my $owndir = dirname($0);
@@ -357,7 +358,7 @@ sub dump_font {
     info("using intermediate file", "$in_file$interm_sfx");
     copy("$in_file$interm_sfx", "$tempb-f.ttx");
   } else {
-    my $pfnt = kpse($in_file) or error("file not found on search path", $in_file);
+    my $pfnt = kpse($in_file);
     info("font file path", $pfnt);
     my ($fext) = ($pfnt =~ m/(\.\w+)$/);
     unlink(glob("$tempb-f*.*"));
@@ -554,8 +555,13 @@ sub write_whole {
 
 sub kpse {
   my ($f) = @_;
-  local $_ = `kpsewhich $f`; chomp($_);
-  return ($_ eq '') ? undef : $_;
+  (-f $f) and return $f;
+  system("$kpsewhich --help 1>$tempb-1.out 2>$tempb-2.out");
+  unlink(glob("$tempb-*.out"));
+  ($? == 0) or error("file not found", $f);
+  local $_ = `$kpsewhich $f`; chomp($_);
+  (-f $_) or error("file not found on search path", $f);
+  return $_;
 }
 
 sub info {
