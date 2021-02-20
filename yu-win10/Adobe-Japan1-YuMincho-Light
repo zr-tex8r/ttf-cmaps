@@ -29,7 +29,7 @@ end def
 endcodespacerange
 
 1 beginbfchar
-<0000> <0000> 
+<0000> <0000>
 endbfchar
 
 92 beginbfrange
@@ -133,4 +133,3 @@ end
 
 %%EndResource
 %%EOF
-
