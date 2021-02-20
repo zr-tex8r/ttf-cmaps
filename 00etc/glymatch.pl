@@ -3,8 +3,8 @@ use XML::Simple;
 use File::Basename 'dirname';
 use File::Copy 'copy';
 my $program = 'glymatch';
-my $version = '0.2.1';
-my $mod_date = '2021/02/20';
+my $version = '0.3.0';
+my $mod_date = '2021/02/21';
 
 sub show_usage {
   print(<<"EOT");
@@ -13,7 +13,9 @@ Usage: $program [<option>]... <in-font-file>
 Options:
   -r/--override <file>  Specify override mapping file
   -o/--output <file>    Specify output CMap file name
+  -j/--json             Output in CMJ format
   -i/--index            Specify font index in TTC/OTC files
+     --cmapver <val>    Specify CMap version
   -v/--verbose          Show more messages
      --info             Output mapping info to stdout
   -h/--help             Show help and exit
@@ -29,6 +31,8 @@ my $owndir = dirname($0);
 
 my $verbose = 0;
 my $out_info = 0;
+my $out_json = 0;
+my $cmapver = 1.000;
 my ($in_file, $out_file, $override_file, $font_index);
 
 my (@gnames, %gids, %ucmap, %gsubst, $psname, $jp04default);
@@ -106,7 +110,11 @@ sub main {
   analyze($xfnt);
   adjust_gsub($xfnt);
   glyph_match();
-  generate_cmap();
+  if ($out_json) {
+    generate_json();
+  } else {
+    generate_cmap();
+  }
   if ($out_info) {
     output_info();
   }
@@ -443,6 +451,8 @@ sub generate_cmap {
 
   my $mapping = join("\n", @cnks);
   my ($fnhyph, $fnuscor) = ($psname, $psname); $fnuscor =~ s/-/_/g;
+  my $version = sprintf("%.9f", $cmapver); $version =~ s/(\.....*?)0*$/$1/;
+
 
   my $cmap = (<<"EOT");
 %!PS-Adobe-3.0 Resource-CMap
@@ -450,7 +460,7 @@ sub generate_cmap {
 %%IncludeResource: ProcSet (CIDInit)
 %%BeginResource: CMap (Adobe-Japan1-$fnhyph)
 %%Title: (Adobe-Japan1-$fnhyph Adobe Japan1 7)
-%%Version: 1.000
+%%Version: $version
 %%EndComments
 
 /CIDInit /ProcSet findresource begin
@@ -489,6 +499,41 @@ EOT
   write_whole($out_file, $cmap);
 }
 
+sub generate_json {
+  my (@map, $scid, $sgid);
+  foreach my $cid (0 .. $#gmatch + 1) {
+    my $gid = $gmatch[$cid];
+    (defined $gid && defined $sgid && $sgid - $scid == $gid - $cid)
+        and next; # in a range
+    if (defined $sgid && $scid + 1 == $cid) {
+      push(@map, [$scid, $sgid]);
+    } elsif (defined $sgid) {
+      push(@map, [$scid, $cid - 1, $sgid]);
+    }
+    ($scid, $sgid) = ($cid, $gid);
+  }
+
+  my $mapping = join(",\n    ", map {
+    '[' . join(", ", @$_) . ']'
+  } (@map));
+  my $fn = $psname; $fn =~ s/\"/\\\"/g;
+  my $ver = sprintf("%.9f", $cmapver); $ver =~ s/(\.....*?)0*$/$1/;
+
+  my $json = (<<"EOT");
+{
+  "type": "togid",
+  "name": "Adobe-Japan1-$fn",
+  "version": $ver,
+  "mapping": [
+    $mapping
+  ]
+}
+EOT
+
+  (defined $out_file) or $out_file = "Adobe-Japan1-$psname.json";
+  write_whole($out_file, $json);
+}
+
 #-----------------------------------------------------------
 
 sub show_version {
@@ -510,13 +555,21 @@ sub read_option {
       show_version(); exit;
     } elsif (m/^-(?:v|-verbose)$/) {
       $verbose = 1;
+    } elsif (m/^-(?:j|-json)$/) {
+      $out_json = 1;
     } elsif (m/^--info$/) {
       $out_info = 1;
-    } elsif (m/^-(?:i|-index)(?:=?(.*))?$/) {
+    } elsif (($arg) = m/^-(?:i|-index)(?:=?(.+))?$/) {
       (defined $arg) or $arg = shift(@ARGV);
       ($arg ne '') or error("missing argument", $_);
       ($arg =~ m/^\d+$/) or error("invalid font index", $arg);
       $font_index = $arg;
+    } elsif (($arg) = m/^--cmapver(?:=?(.+))?$/) {
+      (defined $arg) or $arg = shift(@ARGV);
+      ($arg ne '') or error("missing argument", $_);
+      ($arg =~ m/^[\.\d]+$/ && $arg !~ m/\..*\./)
+        or error("invalid CMap version", $arg);
+      $cmapver = $arg-0;
     } elsif (($arg) = m/^-(?:r|-override)(?:=(.*))?$/) {
       (defined $arg) or $arg = shift(@ARGV);
       ($arg ne '') or error("missing argument", $_);
