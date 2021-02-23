@@ -3,8 +3,8 @@ use XML::Simple;
 use File::Basename 'dirname';
 use File::Copy 'copy';
 my $program = 'glymatch';
-my $version = '0.3.0';
-my $mod_date = '2021/02/21';
+my $version = '0.4.0';
+my $mod_date = '2021/02/24';
 
 sub show_usage {
   print(<<"EOT");
@@ -35,10 +35,11 @@ my $out_json = 0;
 my $cmapver = 1.000;
 my ($in_file, $out_file, $override_file, $font_index);
 
-my (@gnames, %gids, %ucmap, %gsubst, $psname, $jp04default);
+my (@gnames, %gids, %ucmap, %ivsmap, %gsubst, $psname, $jp04default);
 my (@override, @gmatch);
 require "$owndir/aj17-glyphs.pl";
-our (@glyphs);
+require "$owndir/aj17-ivs.pl";
+our (@glyphs, @ivslist);
 
 #use Data::Dumper;
 #$Data::Dumper::Sortkeys = 1;
@@ -137,12 +138,25 @@ sub load_override {
 
 sub glyph_match {
   my %comp = map { $_ => 1 } (@compfeat);
-  my $mc = 0;
+
+  my %ivs;
+  foreach my $e (@ivslist) {
+    my ($uc1, $uc2, $cid) = @$e;
+    (exists $ivs{$cid}) or $ivs{$cid} = "$uc1,$uc2";
+  }
 
   L1:foreach my $cid (1 .. $#glyphs) {
     if (defined $override[$cid]) {
-      $gmatch[$cid] = $override[$cid]; $mc += 1;
+      $gmatch[$cid] = $override[$cid];
       next;
+    }
+
+    if (exists $ivs{$cid}) {
+      my $gc = $ivsmap{$ivs{$cid}};
+      if (defined $gc) {
+        $gmatch[$cid] = $gc;
+        next;
+      }
     }
 
     my $e = $glyphs[$cid]; (ref $e) or next;
@@ -156,7 +170,7 @@ sub glyph_match {
       my $ngc = $gsubst{$fea}{$gc}; (defined $ngc) or next L1;
       $gc = $ngc;
     }
-    $gmatch[$cid] = $gc; $mc += 1;
+    $gmatch[$cid] = $gc;
   }
 
   L2:foreach my $cid (sort { $a <=> $b } (keys %adjust_map)) {
@@ -167,11 +181,16 @@ sub glyph_match {
       my $ngc = $gsubst{$fea}{$gc}; (defined $ngc) or next L2;
       $gc = $ngc;
     }
-    info("adjust", "$cid->$gc");
-    $gmatch[$cid] = $gc; $mc += 1;
+    #info("adjust", "$cid->$gc");
+    $gmatch[$cid] = $gc;
   }
 
-  info("match count", $mc);
+  my %gm = map { $_ => $gmatch[$_] } (grep { defined $gmatch[$_] } (1 .. $#glyphs));
+  my %gmr = reverse %gm;
+  my ($mcf, $gcf) = (scalar(keys %gm), $#glyphs);
+  my ($mct, $gct) = (scalar(keys %gmr), scalar(@gnames));
+  info("match count (source)", "$mcf (out of $gcf)");
+  info("match count (target)", "$mct (out of $gct)");
 
   foreach my $cid (@important_cid) {
     # explicit notdef, just in case
@@ -234,6 +253,20 @@ sub analyze {
   %ucmap = map {
     hex($_->{code}) => glyphid($_->{name})
   } (@{$xs[0]{map}});
+
+  @xs = grep {
+    ($_->{platformID} == 0 && $_->{platEncID} == 5)
+  } (
+    @{$xfnt->{cmap}{cmap_format_14} || []},
+  );
+  if (@xs) {
+    info("cmap-14 found");
+    %ivsmap = map {
+      my ($uv, $uvs, $n) = (hex($_->{uv}), hex($_->{uvs}), $_->{name});
+      my $gc = (defined $n) ? glyphid($n) : $ucmap{$uv};
+      "$uv,$uvs" => $gc
+    } (@{$xs[0]{map}});
+  }
 
   # GSUB
   my %lidx;
