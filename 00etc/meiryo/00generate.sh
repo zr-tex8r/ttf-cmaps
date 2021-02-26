@@ -1,7 +1,9 @@
 #!/bin/bash
 set -eu
 
-glymatch -v meiryo.ttc -i 0
-glymatch -v meiryob.ttc -i 0
+set -eu
 
-mv Adobe-Japan1-* ../../meiryo
+for f in *.json; do
+  cmjconv -O $f
+  mv ${f%.json} ../../meiryo
+done
