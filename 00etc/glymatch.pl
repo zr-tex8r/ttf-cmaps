@@ -3,8 +3,8 @@ use XML::Simple;
 use File::Basename 'dirname';
 use File::Copy 'copy';
 my $program = 'glymatch';
-my $version = '0.4.0';
-my $mod_date = '2021/02/24';
+my $version = '0.4.1';
+my $mod_date = '2021/02/27';
 
 sub show_usage {
   print(<<"EOT");
@@ -18,6 +18,7 @@ Options:
      --cmapver <val>    Specify CMap version
   -v/--verbose          Show more messages
      --info             Output mapping info to stdout
+     --loner            Output loner info to stdout
   -h/--help             Show help and exit
   -V/--version          Show version and exit
 EOT
@@ -31,6 +32,7 @@ my $owndir = dirname($0);
 
 my $verbose = 0;
 my $out_info = 0;
+my $out_loner = 0;
 my $out_json = 0;
 my $cmapver = 1.000;
 my ($in_file, $out_file, $override_file, $font_index);
@@ -118,6 +120,9 @@ sub main {
   }
   if ($out_info) {
     output_info();
+  }
+  if ($out_loner) {
+    output_loner();
   }
 }
 
@@ -207,6 +212,20 @@ sub output_info {
       printf("%05d - %-32s: %s\n", $cid, "", $sn);
     }
   }
+}
+
+sub output_loner {
+  my @chk = (1) x scalar(@gnames);
+  foreach my $gc (grep { defined $_ } (@gmatch)) {
+    $chk[$gc] = 0;
+  }
+  my @lone = grep { $chk[$_] } (0 .. $#gnames);
+
+  print("######## LONER GLYPHS IN TARGET\n");
+  foreach (@lone) {
+    printf("%05d / %s\n", $_, $gnames[$_]);
+  }
+  print("##END\n");
 }
 
 #-----------------------------------------------------------
@@ -592,6 +611,8 @@ sub read_option {
       $out_json = 1;
     } elsif (m/^--info$/) {
       $out_info = 1;
+    } elsif (m/^--loner$/) {
+      $out_loner = 1;
     } elsif (($arg) = m/^-(?:i|-index)(?:=?(.+))?$/) {
       (defined $arg) or $arg = shift(@ARGV);
       ($arg ne '') or error("missing argument", $_);
