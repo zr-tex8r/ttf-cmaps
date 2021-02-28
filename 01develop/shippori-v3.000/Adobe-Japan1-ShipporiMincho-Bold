@@ -1,9 +1,9 @@
 %!PS-Adobe-3.0 Resource-CMap
 %%DocumentNeededResources: ProcSet (CIDInit)
 %%IncludeResource: ProcSet (CIDInit)
-%%BeginResource: CMap (Adobe-Japan1-ShipporiMincho-Regular)
-%%Title: (Adobe-Japan1-ShipporiMincho-Regular Adobe Japan1 7)
-%%Version: 1.000
+%%BeginResource: CMap (Adobe-Japan1-ShipporiMincho-Bold)
+%%Title: (Adobe-Japan1-ShipporiMincho-Bold Adobe Japan1 7)
+%%Version: 3.000
 %%EndComments
 
 /CIDInit /ProcSet findresource begin
@@ -14,11 +14,11 @@ begincmap
 
 /CIDSystemInfo 3 dict dup begin
   /Registry (Adobe) def
-  /Ordering (Adobe_Japan1_ShipporiMincho_Regular) def
+  /Ordering (Adobe_Japan1_ShipporiMincho_Bold) def
   /Supplement 7 def
 end def
 
-/CMapName /Adobe-Japan1-ShipporiMincho-Regular def
+/CMapName /Adobe-Japan1-ShipporiMincho-Bold def
 /CMapVersion 1.000 def
 /CMapType 2 def
 
@@ -173,7 +173,7 @@ endbfchar
 <0103> <0000>
 <0104> <0000>
 <0105> <0000>
-<0106> <0000>
+<0106> <3d70>
 <0107> <0000>
 <0108> <0000>
 <0109> <0000>
@@ -7603,6 +7603,7 @@ endbfchar
 <2303> <3dfb>
 <2304> <3d9e>
 <2305> <3da0>
+<2315> <3d99>
 <248a> <3e38>
 <24a2> <3d50>
 <296d> <3fbe>
@@ -7647,10 +7648,10 @@ endbfchar
 <2bfa> <3bc2>
 <2bfb> <3bc5>
 <2bfc> <3bc8>
-<2bfd> <3bca>
 endbfchar
 
 100 beginbfchar
+<2bfd> <3bca>
 <2bfe> <3bcc>
 <2bff> <3bce>
 <2c00> <3bd0>
@@ -7750,10 +7751,10 @@ endbfchar
 <3099> <3c01>
 <309a> <3c03>
 <309b> <3c05>
-<309c> <3c07>
 endbfchar
 
 100 beginbfchar
+<309c> <3c07>
 <309d> <3c0a>
 <309e> <3c09>
 <309f> <3c0c>
@@ -7853,10 +7854,10 @@ endbfchar
 <31c6> <3b9a>
 <31c7> <3b9d>
 <31c8> <3b9c>
-<31ce> <3ba4>
 endbfchar
 
 100 beginbfchar
+<31ce> <3ba4>
 <31cf> <3ba3>
 <31d5> <3c47>
 <31d6> <3c49>
@@ -7956,10 +7957,10 @@ endbfchar
 <3431> <3984>
 <3432> <0d76>
 <3433> <3988>
-<3434> <39ad>
 endbfchar
 
 100 beginbfchar
+<3434> <39ad>
 <3435> <06a8>
 <3436> <3980>
 <3437> <39a7>
@@ -8059,10 +8060,10 @@ endbfchar
 <34b0> <2ef2>
 <34b1> <1d11>
 <34b3> <0f9c>
-<34b4> <10d8>
 endbfchar
 
 100 beginbfchar
+<34b4> <10d8>
 <34b6> <23f9>
 <34b7> <2c5c>
 <34ba> <281a>
@@ -8162,10 +8163,10 @@ endbfchar
 <3523> <2db6>
 <3524> <38fe>
 <3525> <2e85>
-<3526> <2e91>
 endbfchar
 
 100 beginbfchar
+<3526> <2e91>
 <3527> <2fc5>
 <3528> <2f85>
 <3529> <3066>
@@ -8265,10 +8266,10 @@ endbfchar
 <3624> <2bd5>
 <3629> <01ab>
 <362a> <3b15>
-<362b> <3b3f>
 endbfchar
 
 100 beginbfchar
+<362b> <3b3f>
 <362e> <2b7e>
 <3633> <214c>
 <3638> <2c52>
@@ -8368,10 +8369,10 @@ endbfchar
 <3774> <26b7>
 <3775> <26d0>
 <3776> <39a6>
-<3777> <39a5>
 endbfchar
 
 100 beginbfchar
+<3777> <39a5>
 <3779> <050e>
 <377a> <2777>
 <377e> <0238>
@@ -8471,10 +8472,10 @@ endbfchar
 <382e> <0788>
 <382f> <0794>
 <3830> <079e>
-<3831> <07a4>
 endbfchar
 
 100 beginbfchar
+<3831> <07a4>
 <3832> <07aa>
 <3833> <07af>
 <3834> <07da>
@@ -8574,10 +8575,10 @@ endbfchar
 <38b6> <0e73>
 <38b7> <0e77>
 <38b8> <0e7c>
-<38b9> <0e86>
 endbfchar
 
 100 beginbfchar
+<38b9> <0e86>
 <38ba> <0e8d>
 <38bb> <0e96>
 <38bc> <0eb8>
@@ -8677,10 +8678,10 @@ endbfchar
 <3928> <156e>
 <3929> <1578>
 <392a> <1594>
-<392b> <15a0>
 endbfchar
 
 100 beginbfchar
+<392b> <15a0>
 <392c> <15b4>
 <392d> <15ba>
 <392e> <15ca>
@@ -8780,10 +8781,10 @@ endbfchar
 <39a1> <1b28>
 <39a4> <1b36>
 <39a5> <1b38>
-<39a6> <1b45>
 endbfchar
 
 100 beginbfchar
+<39a6> <1b45>
 <39a7> <1b51>
 <39a8> <1b59>
 <39a9> <1b63>
@@ -8883,10 +8884,10 @@ endbfchar
 <3a27> <2015>
 <3a2a> <201f>
 <3a2b> <2023>
-<3a2c> <203d>
 endbfchar
 
 100 beginbfchar
+<3a2c> <203d>
 <3a2d> <205e>
 <3a2e> <207b>
 <3a31> <208f>
@@ -8986,10 +8987,10 @@ endbfchar
 <3aab> <256b>
 <3aac> <2571>
 <3aad> <2590>
-<3aae> <2595>
 endbfchar
 
 100 beginbfchar
+<3aae> <2595>
 <3aaf> <2599>
 <3ab2> <25da>
 <3ab3> <25dc>
@@ -9089,10 +9090,10 @@ endbfchar
 <3b21> <2bd9>
 <3b22> <2bdf>
 <3b23> <2bea>
-<3b24> <2c09>
 endbfchar
 
 100 beginbfchar
+<3b24> <2c09>
 <3b25> <2c30>
 <3b26> <2c89>
 <3b27> <2cad>
@@ -9192,10 +9193,10 @@ endbfchar
 <3b93> <32aa>
 <3b94> <32b8>
 <3b95> <32c7>
-<3b96> <32cd>
 endbfchar
 
 100 beginbfchar
+<3b96> <32cd>
 <3b97> <32dc>
 <3b98> <32ff>
 <3b99> <3302>
@@ -9295,10 +9296,10 @@ endbfchar
 <3c0e> <38e9>
 <3c11> <38f5>
 <3c12> <38f8>
-<3c13> <3906>
 endbfchar
 
 100 beginbfchar
+<3c13> <3906>
 <3c14> <3912>
 <3c15> <391a>
 <3c16> <391d>
@@ -9398,10 +9399,10 @@ endbfchar
 <3d3e> <3bfe>
 <3d3f> <3bfd>
 <3d40> <3bff>
-<3d41> <3c01>
 endbfchar
 
 100 beginbfchar
+<3d41> <3c01>
 <3d42> <3c03>
 <3d43> <3c05>
 <3d44> <3c07>
@@ -9501,10 +9502,10 @@ endbfchar
 <3f34> <3f7c>
 <3f35> <3ce8>
 <3f36> <3cf2>
-<3f37> <3cf4>
 endbfchar
 
 100 beginbfchar
+<3f37> <3cf4>
 <3f38> <3cf6>
 <3f39> <3cf8>
 <3f3a> <3cfa>
@@ -9604,10 +9605,10 @@ endbfchar
 <403e> <3c0f>
 <403f> <3c11>
 <4042> <3cac>
-<4043> <3cb6>
 endbfchar
 
 100 beginbfchar
+<4043> <3cb6>
 <4044> <3cb9>
 <4045> <3cc9>
 <4046> <3cce>
@@ -9707,10 +9708,10 @@ endbfchar
 <41e0> <0f43>
 <41e1> <0f8c>
 <41e2> <0fb6>
-<41e3> <0fbe>
 endbfchar
 
 100 beginbfchar
+<41e3> <0fbe>
 <41e4> <0ffc>
 <41e5> <106b>
 <41e6> <1069>
@@ -9810,10 +9811,10 @@ endbfchar
 <424c> <1ca0>
 <424d> <1cac>
 <424e> <1cd7>
-<424f> <1d38>
 endbfchar
 
 100 beginbfchar
+<424f> <1d38>
 <4250> <1d4d>
 <4251> <1d61>
 <4252> <1d6a>
@@ -9913,10 +9914,10 @@ endbfchar
 <42b7> <27b4>
 <42b8> <27be>
 <42b9> <27d1>
-<42ba> <27d4>
 endbfchar
 
 100 beginbfchar
+<42ba> <27d4>
 <42bb> <2800>
 <42bc> <2810>
 <42bd> <2812>
@@ -10016,10 +10017,10 @@ endbfchar
 <4324> <344a>
 <4325> <3461>
 <4326> <346b>
-<4327> <346f>
 endbfchar
 
 100 beginbfchar
+<4327> <346f>
 <4328> <3476>
 <4329> <3483>
 <432a> <34e0>
@@ -10119,10 +10120,10 @@ endbfchar
 <4394> <0508>
 <4395> <0514>
 <4396> <051b>
-<4397> <01a7>
 endbfchar
 
 100 beginbfchar
+<4397> <01a7>
 <4398> <0529>
 <4399> <052f>
 <439a> <0539>
@@ -10222,10 +10223,10 @@ endbfchar
 <4402> <0910>
 <4403> <0918>
 <4406> <39e1>
-<4407> <39e3>
 endbfchar
 
 100 beginbfchar
+<4407> <39e3>
 <4408> <094a>
 <4409> <39e5>
 <440c> <0961>
@@ -10325,10 +10326,10 @@ endbfchar
 <4487> <0cb0>
 <448a> <39fb>
 <448b> <39fa>
-<448e> <01c4>
 endbfchar
 
 100 beginbfchar
+<448e> <01c4>
 <448f> <39fe>
 <4490> <39fd>
 <4491> <0cc5>
@@ -10428,10 +10429,10 @@ endbfchar
 <44ff> <10f2>
 <4500> <10f6>
 <4501> <1116>
-<4502> <1140>
 endbfchar
 
 100 beginbfchar
+<4502> <1140>
 <4503> <3a0f>
 <4504> <115c>
 <4505> <1161>
@@ -10531,10 +10532,10 @@ endbfchar
 <4573> <14f6>
 <4574> <14fe>
 <4575> <1514>
-<4576> <3a27>
 endbfchar
 
 100 beginbfchar
+<4576> <3a27>
 <4577> <3a29>
 <4578> <3a28>
 <4579> <1526>
@@ -10634,10 +10635,10 @@ endbfchar
 <45f4> <1804>
 <45f5> <1822>
 <45f6> <3a3d>
-<45f7> <182f>
 endbfchar
 
 100 beginbfchar
+<45f7> <182f>
 <45f8> <1839>
 <45f9> <1845>
 <45fa> <1858>
@@ -10737,10 +10738,10 @@ endbfchar
 <466a> <01fa>
 <466b> <1b57>
 <466c> <1b68>
-<466d> <1b6b>
 endbfchar
 
 100 beginbfchar
+<466d> <1b6b>
 <466e> <1b72>
 <466f> <01fc>
 <4670> <1b8d>
@@ -10840,10 +10841,10 @@ endbfchar
 <46e6> <1e83>
 <46e7> <1e87>
 <46e8> <1e8a>
-<46e9> <1e96>
 endbfchar
 
 100 beginbfchar
+<46e9> <1e96>
 <46ea> <1ea4>
 <46eb> <1e98>
 <46ec> <1e9f>
@@ -10943,10 +10944,10 @@ endbfchar
 <4758> <21aa>
 <4759> <21b0>
 <475a> <21b2>
-<475b> <21c2>
 endbfchar
 
 100 beginbfchar
+<475b> <21c2>
 <475c> <3a73>
 <475d> <0218>
 <475e> <21ca>
@@ -11046,10 +11047,10 @@ endbfchar
 <47ce> <2497>
 <47cf> <2499>
 <47d0> <01a8>
-<47d5> <24ba>
 endbfchar
 
 100 beginbfchar
+<47d5> <24ba>
 <47d8> <24d4>
 <47d9> <050f>
 <47da> <3a41>
@@ -11149,10 +11150,10 @@ endbfchar
 <4846> <27ba>
 <4847> <27bf>
 <4848> <27cd>
-<4849> <27de>
 endbfchar
 
 100 beginbfchar
+<4849> <27de>
 <484a> <3aa1>
 <484b> <27df>
 <484c> <27ea>
@@ -11252,10 +11253,10 @@ endbfchar
 <48d2> <2ae9>
 <48d3> <2af6>
 <48d4> <2afa>
-<48d5> <3ab6>
 endbfchar
 
 100 beginbfchar
+<48d5> <3ab6>
 <48d6> <2b08>
 <48d7> <2b0a>
 <48d8> <0242>
@@ -11355,10 +11356,10 @@ endbfchar
 <4940> <2f0f>
 <4941> <2f1b>
 <4942> <3acd>
-<4943> <2f32>
 endbfchar
 
 100 beginbfchar
+<4943> <2f32>
 <4944> <2f3d>
 <4945> <3ace>
 <4946> <2f4a>
@@ -11458,10 +11459,10 @@ endbfchar
 <49c4> <3315>
 <49c5> <3ae8>
 <49c6> <3aeb>
-<49c7> <333d>
 endbfchar
 
 100 beginbfchar
+<49c7> <333d>
 <49ca> <3aec>
 <49cb> <3349>
 <49cc> <3362>
@@ -11561,10 +11562,10 @@ endbfchar
 <4a45> <366a>
 <4a46> <3676>
 <4a47> <3686>
-<4a48> <025f>
 endbfchar
 
 100 beginbfchar
+<4a48> <025f>
 <4a49> <368d>
 <4a50> <36d5>
 <4a51> <36dc>
@@ -11664,10 +11665,10 @@ endbfchar
 <4ac4> <0271>
 <4ac7> <02ba>
 <4ac8> <0313>
-<4ac9> <0325>
 endbfchar
 
 100 beginbfchar
+<4ac9> <0325>
 <4aca> <0330>
 <4acb> <0334>
 <4acc> <0336>
@@ -11767,10 +11768,10 @@ endbfchar
 <4b41> <08e1>
 <4b42> <08e6>
 <4b43> <08f3>
-<4b44> <0901>
 endbfchar
 
 100 beginbfchar
+<4b44> <0901>
 <4b45> <0904>
 <4b46> <090a>
 <4b47> <0912>
@@ -11870,10 +11871,10 @@ endbfchar
 <4bb6> <10c6>
 <4bb7> <10c9>
 <4bb8> <10fb>
-<4bb9> <110d>
 endbfchar
 
 100 beginbfchar
+<4bb9> <110d>
 <4bba> <111b>
 <4bbb> <1145>
 <4bbc> <1153>
@@ -11973,10 +11974,10 @@ endbfchar
 <4c30> <1a30>
 <4c31> <1a32>
 <4c32> <1a38>
-<4c33> <1a71>
 endbfchar
 
 100 beginbfchar
+<4c33> <1a71>
 <4c34> <1a81>
 <4c35> <1a8e>
 <4c36> <1a95>
@@ -12076,10 +12077,10 @@ endbfchar
 <4c9c> <20b4>
 <4c9f> <20ca>
 <4ca0> <20ce>
-<4ca1> <20dc>
 endbfchar
 
 100 beginbfchar
+<4ca1> <20dc>
 <4ca2> <20ed>
 <4ca3> <20f4>
 <4ca4> <2110>
@@ -12179,10 +12180,10 @@ endbfchar
 <4d14> <26e0>
 <4d15> <26f6>
 <4d16> <26fc>
-<4d17> <270e>
 endbfchar
 
 100 beginbfchar
+<4d17> <270e>
 <4d18> <2725>
 <4d19> <2728>
 <4d1a> <272c>
@@ -12282,10 +12283,10 @@ endbfchar
 <4d87> <2e1c>
 <4d88> <2e22>
 <4d89> <2e2a>
-<4d8a> <2e3a>
 endbfchar
 
 100 beginbfchar
+<4d8a> <2e3a>
 <4d8b> <2e3f>
 <4d8e> <2e54>
 <4d8f> <2e56>
@@ -12385,10 +12386,10 @@ endbfchar
 <4dfa> <3383>
 <4dfb> <338d>
 <4dfc> <33a3>
-<4dfd> <33dc>
 endbfchar
 
 100 beginbfchar
+<4dfd> <33dc>
 <4dfe> <33ed>
 <4dff> <33f1>
 <4e00> <33f2>
@@ -12488,10 +12489,10 @@ endbfchar
 <4e9d> <3b1c>
 <4e9f> <01d7>
 <4ea0> <39cd>
-<4ea2> <3a18>
 endbfchar
 
 100 beginbfchar
+<4ea2> <3a18>
 <4ea5> <3abc>
 <4ead> <3b1d>
 <4eae> <01da>
@@ -12591,10 +12592,10 @@ endbfchar
 <525e> <030f>
 <525f> <031b>
 <5260> <031f>
-<5261> <0321>
 endbfchar
 
 100 beginbfchar
+<5261> <0321>
 <5262> <032b>
 <5263> <032f>
 <5264> <033a>
@@ -12694,10 +12695,10 @@ endbfchar
 <52f4> <06ad>
 <52f7> <06b2>
 <52f8> <06be>
-<52f9> <06d0>
 endbfchar
 
 100 beginbfchar
+<52f9> <06d0>
 <52fa> <06d3>
 <52fb> <06d6>
 <52ff> <06f2>
@@ -12797,10 +12798,10 @@ endbfchar
 <537f> <0a9c>
 <5380> <0aa2>
 <5381> <0aaa>
-<5385> <0ab6>
 endbfchar
 
 100 beginbfchar
+<5385> <0ab6>
 <5386> <0ab8>
 <5387> <0ac2>
 <5388> <0acc>
@@ -12900,10 +12901,10 @@ endbfchar
 <5415> <0eaa>
 <5416> <0ebc>
 <5417> <0ec2>
-<5418> <0ec8>
 endbfchar
 
 100 beginbfchar
+<5418> <0ec8>
 <5419> <0ed4>
 <541c> <0ee9>
 <541f> <0f01>
@@ -13003,10 +13004,10 @@ endbfchar
 <549b> <1273>
 <549c> <127d>
 <54a1> <1295>
-<54a2> <129d>
 endbfchar
 
 100 beginbfchar
+<54a2> <129d>
 <54a3> <12a4>
 <54a6> <12be>
 <54a7> <12c8>
@@ -13106,10 +13107,10 @@ endbfchar
 <5523> <16bb>
 <5524> <16c7>
 <5526> <16ec>
-<5527> <16f7>
 endbfchar
 
 100 beginbfchar
+<5527> <16f7>
 <552a> <1707>
 <552d> <1719>
 <5530> <1727>
@@ -13209,10 +13210,10 @@ endbfchar
 <55aa> <1b5b>
 <55ab> <1b5d>
 <55ac> <1b64>
-<55ad> <1b6a>
 endbfchar
 
 100 beginbfchar
+<55ad> <1b6a>
 <55ae> <1b6e>
 <55af> <1b70>
 <55b0> <1b87>
@@ -13312,10 +13313,10 @@ endbfchar
 <563a> <2016>
 <563b> <2029>
 <563c> <202c>
-<563d> <202f>
 endbfchar
 
 100 beginbfchar
+<563d> <202f>
 <563e> <2034>
 <5642> <203b>
 <5643> <2055>
@@ -13415,10 +13416,10 @@ endbfchar
 <56bc> <23b7>
 <56bd> <23ba>
 <56be> <23bd>
-<56bf> <23ca>
 endbfchar
 
 100 beginbfchar
+<56bf> <23ca>
 <56c6> <2422>
 <56c7> <240d>
 <56c8> <2414>
@@ -13518,10 +13519,10 @@ endbfchar
 <5744> <27f8>
 <5746> <2801>
 <5747> <2805>
-<5748> <2808>
 endbfchar
 
 100 beginbfchar
+<5748> <2808>
 <5749> <280a>
 <574a> <2813>
 <574b> <281c>
@@ -13621,10 +13622,10 @@ endbfchar
 <57d1> <2b17>
 <57d2> <2b21>
 <57d3> <2b2f>
-<57d6> <2b3d>
 endbfchar
 
 100 beginbfchar
+<57d6> <2b3d>
 <57d7> <2b41>
 <57d8> <2b46>
 <57d9> <2b4d>
@@ -13724,10 +13725,10 @@ endbfchar
 <5850> <2df7>
 <5851> <2df9>
 <5852> <2e00>
-<5853> <2e0e>
 endbfchar
 
 100 beginbfchar
+<5853> <2e0e>
 <5854> <2e17>
 <5855> <2def>
 <5858> <2e2f>
@@ -13827,10 +13828,10 @@ endbfchar
 <58fb> <3229>
 <58fc> <322b>
 <58fd> <322d>
-<5900> <3237>
 endbfchar
 
 100 beginbfchar
+<5900> <3237>
 <5901> <3239>
 <5902> <323b>
 <5903> <323e>
@@ -13930,10 +13931,10 @@ endbfchar
 <598b> <360b>
 <598e> <3618>
 <5991> <3622>
-<5992> <3626>
 endbfchar
 
-81 beginbfchar
+82 beginbfchar
+<5992> <3626>
 <5993> <362c>
 <5994> <3636>
 <5995> <3639>

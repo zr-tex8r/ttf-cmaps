@@ -1,9 +1,9 @@
 %!PS-Adobe-3.0 Resource-CMap
 %%DocumentNeededResources: ProcSet (CIDInit)
 %%IncludeResource: ProcSet (CIDInit)
-%%BeginResource: CMap (Adobe-Japan1-ShipporiMincho-SemiBold)
-%%Title: (Adobe-Japan1-ShipporiMincho-SemiBold Adobe Japan1 7)
-%%Version: 1.000
+%%BeginResource: CMap (Adobe-Japan1-ShipporiMincho-Regular)
+%%Title: (Adobe-Japan1-ShipporiMincho-Regular Adobe Japan1 7)
+%%Version: 3.000
 %%EndComments
 
 /CIDInit /ProcSet findresource begin
@@ -14,11 +14,11 @@ begincmap
 
 /CIDSystemInfo 3 dict dup begin
   /Registry (Adobe) def
-  /Ordering (Adobe_Japan1_ShipporiMincho_SemiBold) def
+  /Ordering (Adobe_Japan1_ShipporiMincho_Regular) def
   /Supplement 7 def
 end def
 
-/CMapName /Adobe-Japan1-ShipporiMincho-SemiBold def
+/CMapName /Adobe-Japan1-ShipporiMincho-Regular def
 /CMapVersion 1.000 def
 /CMapType 2 def
 
